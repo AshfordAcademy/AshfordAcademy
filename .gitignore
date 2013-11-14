@@ -3,9 +3,9 @@
 #################
 traceback.txt
 log.txt
-.edbkup
-.rpyc
-.jpg
+*.edbkup
+*.rpyc
+*.jpg
 
 #################
 ## Eclipse
