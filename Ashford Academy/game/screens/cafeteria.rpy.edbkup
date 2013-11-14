@@ -1,0 +1,17 @@
+image bg cafeteria1 = "screens/cafeteria/cafeteria1.jpg"
+image bg cafeteria2-1 = "screens/cafeteria/cafeteria2-1.jpg"
+image bg cafeteria2-2 = "screens/cafeteria/cafeteria2-2.jpg"
+
+init:
+    if persistent.mod_disable_original_events == False:
+        $ event("cafeteria1", "act == 'cafeteria'", event.choose_one('cafeteria'), priority=200)
+        $ event("cafeteria2", "act == 'cafeteria'", event.choose_one('cafeteria'), priority=200)
+
+
+label cafeteria1:
+    
+    scene bg cafeteria1 with fade
+    "These girls sure enjoy our cafeteria."
+    $ behavior -= 1
+    return
+

@@ -1,0 +1,43 @@
+image bg cheerleader_club1 = "screens/cheerleader_club/cheerleader_club1.jpg"
+image bg cheerleader_club2 = "screens/cheerleader_club/cheerleader_club2.jpg"
+image bg cheerleader_club3-1 = "screens/cheerleader_club/cheerleader_club3-1.jpg"
+image bg cheerleader_club3-2 = "screens/cheerleader_club/cheerleader_club3-2.jpg"
+
+init:
+    if persistent.mod_disable_original_events == False:
+        $ event("cheerleader_club1", "act == 'cheerleader_club'", event.choose_one('cheerleader_club'), priority=200)
+        $ event("cheerleader_club2", "act == 'cheerleader_club'", event.choose_one('cheerleader_club'), priority=200)
+        $ event("cheerleader_club3", "act == 'cheerleader_club'", event.choose_one('cheerleader_club'), priority=200)
+
+
+label cheerleader_club1:
+    
+    scene bg cheerleader_club1 with fade
+    "I'm sure these girls keep the morale high."
+    $ morale += 1
+    return
+
+
+label cheerleader_club2:
+    
+    scene bg cheerleader_club2 with fade
+    "These girls really help our team give it all!"
+    $ morale += 1
+    return
+
+
+label cheerleader_club3:
+    
+    if reputation < 40:
+        scene bg cheerleader_club3-1 with fade
+        "Seems like our cheerleaders are having some problems with their new routine."
+        $ morale -= 1
+    else:
+        scene bg cheerleader_club3-2 with fade
+        if povGender == "male":
+            "I could observe these girls all day long. Those short skirts and petite breast jumping up and down... Up and down..."
+        else:
+            "girls" "Go Ashford! *clap* *clap* Go Ashford! *clap* *clap*"
+    $ morale += 1
+    return
+

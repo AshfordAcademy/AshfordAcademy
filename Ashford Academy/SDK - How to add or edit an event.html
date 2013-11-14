@@ -1,0 +1,336 @@
+<html>
+<head>
+<title>SDK - How to add or edit an event</title>
+<style>
+
+BODY {
+background: #fff;
+color: #444;
+padding-left: 20%;
+padding-top: 1em;
+padding-bottom: 1em;
+padding-right: 20%;
+font-family: sans-serif;
+line-height: 1.6em;
+}
+
+DT {
+font-weight: bold;
+margin-top: .33em;
+}
+
+.tab0x {
+margin-left: 0px;
+}
+
+.tab1x {
+margin-left: 40px;
+}
+
+.tab2x {
+margin-left: 80px;
+}
+
+.tab3x {
+margin-left: 120px;
+}
+
+H2 {
+color: #000;
+margin-left: -2.5em;
+}
+
+H3 {
+color: #000;
+margin-left: -1.5em;
+}
+
+.editsection {
+display: none;
+}
+
+</style>
+</head>
+<body>
+
+<h2><span class="mw-headline">SDK - How to add or edit an event</span></h2> 
+<h3>Before we start:</h3>
+You can use notepad or any texteditor to edit the source code, but it'as strongly recommended to use <i><b>Editra</b></i>. It's really lightweight and colour codes everything wich makes it easier to work with.</p>
+Now open your editor of choice and create a new file, give it the name you want and end its name with ".rpy", eg. <i>Hina_Amagi.rpy</i>.</p>
+<p>NB: On http://www.renpy.org/wiki/renpy/doc/reference/The_Ren%27Py_Language and in general on the internet you may find other useful commands to use when you are scripting an event. In this SDK only the basics are explained.</p>
+
+<p><b>Before writing the event itself you need to do few things:</b></p>
+<p><b>1)</b><i> Character declaration</i></p>
+<p><b>2)</b><i> Image declaration</i></p>
+<p><b>3)</b><i> Event declaration</i></p>
+<p><b>4)</b><i> Write the event</i></p>
+<p>After this you will have your very own event.</p>
+
+<p><a name="Character_declaration" id="Character_declaration"></a></p>
+<h3><span class="mw-headline">Character declaration</span></h3> 
+<p>This may be useful if you are creating a specific character that has many lines to say. Otherwise there is no need to define it.</p> 
+<code><p>define <b>name</b> = Character('<b>name to show</b>', color="<b>color_code</b>")</code><br>
+<b>Ex: </b>
+<code><br>define <b>teacher</b> = Character('<b>Teacher</b>', color="<b>#ff44ee</b>")</p></code>
+
+<p>What this will do exactly will be exaplined later. In general during a dialogue <b>name to show</b> is the name shown in the dialogue box when the character speak and color is the color in wich the name is written.
+<b>name</b> is how you will call those info when scripting.</p>
+
+<p>There are already some basic characters defined in <b>char.rpy</b>. These are: <b>teacher</b>, <b>girl</b>, <b>girl1</b>, <b>girl2</b>, <b>guy</b>, <b>girls</b>, <b>class</b> and <b><i>pov</i></b>. <b>Pov</b> is really important, since it's the principal (the player's <b>p</b>oint <b>o</b>f <b>v</b>iew).
+<i><br>As of r4023 you can use <b>pov</b> or <b>povName</b> for the full name of the player or <b>povFirstName</b> for first name and <b>povLastName</b> for the lastname.</i>
+Other noteworthy variables are <b>povTitle</b> (Mr./Mrs.) and <b>povGender</b> (male/female).
+
+<h3><span class="mw-headline">Image declaration</span></h3> 
+<p>This is needed when you want to use the images you added. The program must know where the image is and which name you want to give to it.
+Declaring an image is pretty easy and consist in only one line of code for each image. The line is:</p>
+
+<code><p>image <b>image_name</b> = <b>directory_adress</b><br></code>
+<b>Ex:</b><br>
+<code>
+image<b> Hina_amagi happy</b> = <b>"screens/story_screens/hina_amagi/hina_happy.png"</b><br>
+image <b><i>bg</i> classroom</b> = <b>"screens/places/classroom.jpg"</b></p>
+</code>
+<b>image_name</b> is the name you are giving to the image. Usually if the image cover all the screen (like a background image) the name start with <b>"bg"</b> (but this is not a must).<br>
+<b>directory_adress</b> is the path to reach the image you are assigning, starting from the <b>game</b> folder.
+
+<p>For more examples, open <b>class.rpy</b> or similar in the <b>screens</b> folder and look at the top of the document.</p>
+
+<h3><span class="mw-headline">Event declaration</span></h3>
+<p>This is easy as <b>image declaration</b>, but before that, lets talk about indentation:</p>
+
+<p><b>Indentation:</b></p>
+<p>Indentation is the space before the text begins, that can be created pressing <tt>TAB</tt>:
+<br>Normal line
+<br>	Indented line
+<br>		Two times indented line
+
+<p>This is important in cause trougth these indentation the computer can recognize <b>blocks</b>.</p>
+
+Normal line
+	Line of block 1
+	Line of block 1
+Normal line
+Normal line
+            Line of block 2
+            Line of block 2
+            Line of block 2
+                        Line of block 2.1
+
+Line of block 2.1
+Line of block 2.1.1
+            Line of block1
+
+Normal line
+
+<p>All the lines in the same block have some characteristic in common. This characteristic is normally given by the last line before the new block begins.</p>
+<p>You can also create blocks inside other blocks, but this is not important now.</p>
+
+<p><b>Event declaration:</b></p>
+
+<p>To declare a event you have to write this:</p>
+<code>
+<p>Init:<br>
+<p class="tab1x">$  event(<b>event_name</b>,<b>event_conditions</b>, event.choose_one('<b>visit_location_codename</b>'), other proprierties of the event)
+</p></code>
+
+check the "example" <b>class.rpy</b> for examples.
+
+<p><b>Init:</b> you start with this information. It just tell to the program some property of the next block. In the following block you can place one line for each event you want to declare.</p>
+
+<p><b>$</b> this symbols tell the program you are going to use a type of code named <b>python</b>.</p>
+
+<p><b>event_name</b> itÅfs just the name that you want to give to the event to recognize it among all the others.</p>
+
+<p><b>event_conditions</b> these are the condition that needs to be true for the event to be available.</p>
+
+<p>The first condition you are going to write here is about the location were the event will happen: act == <b>visit_location_codename</b>.<br>
+This means that you must visit a particular location for that event to trigger. Each location has a different <b>visit_location_codename</b>. Those available now are: <b>class</b>, <b>pool</b>, <b>library</b>, <b>office</b>, <b>gym</b>, <b>sports_field</b>, <b>school_grounds</b> and <b>bath</b>.</p>
+
+<p>You can write more than one condition and you can use the statement <b>AND</b> if you require that both the conditions are true for the event to be available or you can use the statement <b>OR</b> if you need that just one of them is true for the event to be available.</p>
+<code>
+<p>Act == 'pool' and athletics > 40<br>
+Act == 'bath' and (behavior < 20 or morale < 10 )</p>
+</code>
+ 
+<p><b>event.choose_one(visit_location_codename)</b> This is really easy since you only need to place the <b>visit_location_codename</b> inside the (' ')  [NB: brackets and apostrophes]
+
+This info is needed to be sure that only one event trigger in that location.
+ 
+
+<b><p>After this one you can place some more proprierty to the event you want to write. Each proprierty need to be separated by a comma. These possibilities are:</b><p>
+ 
+<p><b>event.once()</b> If you want the event to be picked only once in the whole game.</p>
+
+<p><b>event.only()</b> If you want to bypass all the other event to be sure that this taken (if the other conditions are true). better don't use if not REALLY needed.</p>
+
+<p><b>Priority = number</b> Lower priority events have a higher chance to occur then higher ones. <i>Does NOT work properly at the moment and can be ignored.</i></p>
+
+<p><b>event.depends('another_event_label_name')</b> The event can only trigger if the event inside the brackets has already been triggered before.</p>
+
+<h3><span class="mw-headline">Write the event</span></h3>
+
+<p>Now the first things to do is writing the name of the event. Then all the event will be written in a big block.</p>
+
+<b>Label event_name</b>
+	All the rest of the event need to be indented.
+
+<p>Now to write an event there are many things that you can do:</p>
+<p><b>1)</b> <i>Show a background image</i><br>
+
+<b>2)</b> <i>Show an image not in the background (like a character that speak)</i><br>
+
+<b>3)</b> <i>Write text (both narration and character dialogue)</i></p>
+
+<p>These are the  basic action. And with these you can write everything.<br>
+The advanced things that you can use are:</p>
+ 
+<p><b>4)</b> <i>Modify the school stat or other variables during the event</i><br>
+
+<b>5)</b> <i>Create fork in the event that depends on a variable (maybe the school stats or the active policies)</i><br>
+
+<b>6)</b> <i>Give the player a menu of choices with each option that give a different output.</i><br></p>
+
+<p>NB: here http://www.renpy.org/wiki/renpy/doc/reference/The_Ren%27Py_Language you will find more complete info on the statements that will be explained here. You can also find more statements since many more exists.</p>
+
+<p><b>Show a background image</b></p>
+
+<code>
+Scene<br>
+Scene <b>image_name</b><br>
+Scene <b>image_name</b> with fade<br>
+</code>
+
+<p>To show a background image only one line is needed.</p>
+
+<p><b>Scene</b> This statement clean the screen. IF after this statement (on the same line) there is the name of an image, that image is shown. By default the image is placed centered horizontally and placed on the bottom of the screen.</p>
+
+<p>After the name of the image there can be more commands. Here only one is shown.</p>
+
+<p><b>With fade</b> The image instead of appearing immediately, will appear with a fade effect. </p>
+
+
+<p><b>Show and hide an image</b></p>
+
+<code>
+Show <b>image_name</b><br>
+Show <b>image_name</b> at <b>location</b><br>
+Hide <b>image_name</b><br>
+</code>
+
+<p>This statement will show <b>image_name</b> without cleaning the screen.</p>
+
+<p>When adding an image in this way, the show statement first checks to see if an image with the same tag (by default, first part of the image name) exists in the layer (screen). If so, that image is replaced, without changing the order. This means that it's rarely necessary to hide images.</p>
+<b>Ex:</b><br>
+<code>
+	Show Eileen happy<br>
+	Show Eileen sad<br>
+</code>
+ 
+<p>This will initially show the image <b>Eileen happy</b>. Then when the second image is called, since the tag (by default, first part of the image name) is the same, it will automatically hide the first image.</p>
+
+<p>Otherwise to hide an image the command is:</p>
+
+<code>
+Hide Eileen happy at center with fade
+</code><br>
+<i>NB: with fade is here only as example, it does not work well with characters</i>
+
+<p>Then after the name of the image, other info may be added.</p>
+
+<p><b>At location with this you can choose were to place the image. Location may be:</b></p>
+
+<p><b>Center</b> Image centered horizontally and placed on the bottom of the screen.</p>
+
+<p><b>Truecenter</b> Image centered horizontally and vertically.</p>
+
+<p><b>Right</b> place the image on the right.</p>
+
+<p><b>Left</b> place the image on the left.</p>
+
+<p><b>With fade</b> can be used too.</p>
+<p><h3>Write text</h3></p>
+
+<p>To show some text in a dialogue box just write what you want inside apostrophe " ".</p>
+ 
+<code>
+"text go here"
+</code>
+
+<p>Since the speaker is not definited this will be shown as narration. If you want to add the name of the speaker just do:</p>
+
+<code><p>
+"name_of_the_speaker" "text go here"
+</p></code>
+Or
+<code><p>
+name "text go here"
+</p></code>
+
+Where <b>name</b> is a character name that you have declared before (like was explained at the beginning of the SDK)
+
+If you need there are some macro that can be inserted in the text:
+
+<p><b>\n</b> With this you can start a new line in the dialogue in the same dialogue box.</p>
+
+<code>
+name "I'm writing on the first line. \nNow I am writing on the second line"
+</code>
+
+<p>If you want to write a name inside the text you can use <b>name</b> not really useful for normal character. But the principal does not have a fixed name so you can do this:</p>
+
+<code><p>
+teacher_susan "Hi [povName] you know you are the principal right?"
+pov "My name is [povTitle] [povFirstName] [povLastName] and I am a [povGender]."
+</p></code>
+
+<i>NB: Remember <B>povName</b> is the principal. This is really useful.</i>
+<br>
+<br>
+<b>Other useful commands are:</b><br>
+<b>{w}</b> Waits for userinput (such as a click).<br>
+<b>{i}text{/i}</b> <i>Italics</i><br>
+<b>{b}text{/b} Bold</b><br>
+<b>{u}text{/u}</b> <u>Underline</u><br>
+<b>{size=20}text{/size}</b> Text size<br>
+<b>{cps=*2}text{/cps}</b> Chars per second - text speed.<br>
+
+
+<br>
+<p><b>End of the event</b></p>
+
+<p>To end the event simply write <b>return</b> in the event block.</p>
+
+<code>
+<p class="tab0x">Label <b>event_name</b></p>
+<p class="tab1x">Block1<br>Block1<br>Block1<br>return</p>
+</code>
+ 
+
+<p>Remember to write <b>return</b> whenever you want to finish the event. So if the event has more than one possible end (explained later) you will probably need more than one <b>return</b> statement.</p>
+
+ 
+<code>
+<p class="tab0x">Label <b>event_name</b></p>
+<p class="tab1x">Block1<br>Block1</p>
+<p class="tab2x">Block1.1</br>Block1.1<br>Return</p>
+<p class="tab1x">Block1<br>Return</p>
+</code>
+
+<p><b>With these basic functions you can write any event you want.<br>For some advanced function see below.</b></p>
+
+<b>Debugging</b><br>
+
+When you want to test your event. Start the game. And remember that you can:
+
+<p>Name the principal <b>debug</b> this way you will have all the stats at 50 and a lot of money (don't cheat, don't use this to play the game!)</p>
+
+<p>Change your script and save it with even while playing. The changes will not affect the game until a reload. To do this you can press SHIFT+R, and you will reload and restart from the very scene you were playing.<br>Sometimes, rarely, this is not enough to see all the changes in game and you need to close and reopen the game.</p>
+
+<p>It may be useful to change some of the condition in the event declaration to make it easier for you to trigger the event. For example you can add the proprierty <b>event.only()</b> explained before. Or you can change some condition like <b>behavior > 90</b> into <b>behavior < 90</b> to make it easier to be triggered (after the debug remember to cancel this modifications).</p>
+
+<p><a name="Legal_Notice" id="Legal_Notice"></a></p> 
+<h2><span class="mw-headline">Legal Notice</span></h2> 
+<p>This game uses source code from a number of open source projects. For a list, and a location where the source code can be downloaded from, please visit <a href="http://www.renpy.org/wiki/renpy/License" class="external free" title="http://www.renpy.org/wiki/renpy/License" rel="nofollow">http://www.renpy.org/wiki/renpy/License</a> .</p> 
+
+</body>
+</html>

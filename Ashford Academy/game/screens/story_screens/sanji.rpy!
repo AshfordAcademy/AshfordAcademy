@@ -1,0 +1,149 @@
+##########################################################
+#
+#                       Hina Amagi                      
+#
+# A student first met in the introduction scene in class.
+# Have earlier been part of the swimming team and would 
+# like that Ashford Academy rebuilds their swimming pool.
+# 
+# Three unique sex scenes are available.
+#
+##########################################################
+
+
+# We use this variable to keep track on her feelings towards the player. 
+define hina_amagi_points = 0
+
+
+# We load images to be shown and the variations.
+image hina_amagi normal = "screens/story_screens/hina_amagi/hina_normal.png"
+image hina_amagi happy = "screens/story_screens/hina_amagi/hina_happy.png"
+image hina_amagi blush = "screens/story_screens/hina_amagi/hina_blush.png"
+image hina_amagi angry = "screens/story_screens/hina_amagi/hina_angry.png"
+image hina_amagi suprised = "screens/story_screens/hina_amagi/hina_suprised.png"
+image hina_amagi sad = "screens/story_screens/hina_amagi/hina_sad.png"
+
+image hina_amagi cosplay_normal = "screens/story_screens/hina_amagi/hina_cosplay_normal.png"
+image hina_amagi cosplay_happy = "screens/story_screens/hina_amagi/hina_cosplay_happy.png"
+image hina_amagi cosplay_angry = "screens/story_screens/hina_amagi/hina_cosplay_angry.png"
+
+
+# Here we define prefix used for us and what it will show to the player.
+# Colors are written in hexadecimal. (FF0000 = Red, 00FF00 = Green, 0000FF = Blue)
+define hina_amagi = Character('Hina Amagi', color="#F8BA87")
+
+
+# Here we make a list of all scenes with her. 
+init:
+    $ event("hina_amagi_in_class1", "act == 'class' and planning_day > 4 and hina_amagi_points > 0 and hina_amagi_points < 10", event.choose_one('class'),event.depends("class_introduction"), priority=195)
+    # "hina_amagi_in_class" is the name/label of this event. "act" defines what type it is, with additional requirement to have planning_day above 5  
+    
+    $ event("hina_amagi_in_class2", "act == 'class' and planning_day > 4 and hina_amagi_points >= 10", event.once(), event.depends("hina_amagi_in_class1"))
+    # event.once() makes sure it only viewable once.event.depends("hina_amagi_in_class1") - this event must have been seen first.
+
+# Here starts the actual scenes. The name in the list must match the ones below.
+
+
+label hina_amagi_in_class1:
+    
+    scene bg classroom with fade
+    # We want to load a backdrop named "classroom" with the effect "fade"
+    show hina_amagi normal at center
+    hina_amagi "Hello [povname]!"               # [povname] is used for printing the username in text content.
+    menu:                                       # We create a menu where you are given options to respond.
+        "Good day.":                            # All menu options must end with a ":" and can include "if" parameters after the option before the ":".
+            pov "Good day."                     # pov is the variable for the users name in text boxes.
+            
+        "Hello there student!":
+            show hina_amagi suprised
+            hina_amagi "Don't you remember me?"
+            pov "I'm sorry, but I can't remember every student. I hope you understand."
+            show hina_amagi sad
+            hina_amagi "I understand Mister [povname]..."
+            $ hina_amagi_points -= 1
+            return
+            
+        "Hey there Amagi!":
+            show hina_amagi happy
+            hina_amagi "You remember me!"
+            $ hina_amagi_points += 1
+            
+    python:
+        if building_pool == 0:
+            hina_amagi("So Mister [povname] is there any new regarding the pool?")
+            pov("I'm sorry, there's nothing new at the moment.")
+            hina_amagi("I understand, but please tell me if anything changes!")
+            pov("Will do.")
+        else:
+            hina_amagi("I really want to thank you for getting our pool back!")
+            pov("Don't worry about it, it's my pleasure to see you students happy.")
+            hina_amagi("You're the best Principal ever!")
+            hina_amagi_points += 1
+    return
+
+
+label hina_amagi_in_class2:
+    
+    scene bg classroom with fade
+    show hina_amagi happy at center
+    hina_amagi "Hello [povname]! How are you today?"
+    menu:
+        "I'm great, thanks for asking":
+            show hina_amagi suprised
+            hina_amagi "That makes me happy to hear, anything special?"
+            pov "Well, I did run into my favourite student, that always make me happy!"
+            show hina_amagi blush
+            hina_amagi "Aww [povname], you're so sweet!"
+            $ hina_amagi_points += 2
+            return
+            
+        "I'm good, how are you?" if building_pool == 0:
+            show hina_amagi normal
+            hina_amagi "Well, I still miss the pool... But I do enjoy chatting with you."
+            pov "Oh, yes, sorry about the pool."
+            show hina_amagi sad
+            hina_amagi "It's okay... Some things never work out as planned."
+            return
+            
+        "I'm good, how are you?" if building_pool > 0:
+            hina_amagi "I'm great, I'm just getting ready for swimming club!"
+            pov "You really like swimming, don't you?"
+            hina_amagi "Yeah, I really do! And it's all thank to you we got the new pool, thanks again [povname]." 
+            pov "Don't mention it."
+            $ hina_amagi_points += 1
+            return
+
+
+label hina_amagi_festival:
+    
+    scene bg classroom with fade
+    hina_amagi "Hello there [povname]!"
+    "You can hear how she quickly runs up behind you."
+    show hina_amagi_cosplay normal at center
+    "Wow, that outfit..."
+    "..."
+    "For a second you wonder if this really is appropriate, but you quickly dismiss that thought."
+    hina_amagi "Umm... [povname], is something wrong?"
+    menu:
+        "Ah, nothing, I was just stunned by your outfit.":
+            hina_amagi "Oh... Does that mean you like it?"
+            pov "Yeah, it's really something special."
+            show hina_amagi_cosplay happy
+            hina_amagi "Thank you! I'm happy you like it"
+            return
+            
+        "Wow, that's sexy!":
+            show hina_amagi_cosplay ### supr
+            hina_amagi "Whaa, umm, thank you..."
+            "She looks equally confused and happy."
+            return
+            
+        "I can't allow her wandering around like that!":
+            pov "What is this?! You can't walk around like that? Think of the school reputation!"
+            show hina_amagi_cosplay ### supr
+            hina_amagi "But..."
+            pov "What where you thinking when you put THAT thing on?!"
+            show hina_amagi_cosplay ### sad
+            hina_amagi "..."
+            "You can see that she's close to tears, maybe this was a bit harsh."
+            return
