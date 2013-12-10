@@ -15,7 +15,8 @@ image bg pool12-1 = "locations/pool/pool12-1.jpg"
 image bg pool12-2 = "locations/pool/pool12-2.jpg"
 image bg pool13-1 = "locations/pool/pool13-1.jpg"
 image bg pool13-2 = "locations/pool/pool13-2.jpg"
-image bg pool14 = "locations/pool/pool14.jpg"
+image bg pool14-1 = "locations/pool/pool14-1.jpg"
+image bg pool14-2 = "locations/pool/pool14-2.jpg"
 image bg pool15 = "locations/pool/pool15.jpg"
 image bg pool16_1 = "locations/pool/pool16-1.jpg"
 image bg pool16_2 = "locations/pool/pool16-2.jpg"
@@ -213,7 +214,7 @@ label pool13:
 
 label pool14:
     
-    scene bg pool14 with fade
+    scene bg pool14-1 with fade
     "It's nice to see the students start to spend more of their spare time in the pool."
     $ inhibition -= 1
     return

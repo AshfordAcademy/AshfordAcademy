@@ -1,9 +1,12 @@
 #################
 ## Extras
 #################
+distribute.txt
 traceback.txt
+lint.txt
 log.txt
 *.edbkup
+*.rpyb
 *.rpyc
 *.jpg
 
