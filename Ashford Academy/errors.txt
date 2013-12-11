@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/locations/school_grounds.rpy", line 909: reached end of line when expecting ':'.
-    if 
-       ^
+File "game/story/story_screens/hina_amagi.rpy", line 289: choice menuitem expects a non-empty block.
+    "Leave her be.":
+                    ^
 
 Ren'Py Version: Ren'Py 6.16.1.409

@@ -60,13 +60,14 @@ init:
     $ event("hina_amagi_in_class1", "act == 'class' and hina_amagi_points > 0 and hina_amagi_points < 7 and planning_day > 2", event.choose_one('class'), priority=190)
     # "hina_amagi_in_class" is the name/label of this event. "act" defines what type it is, with additional requirement to have planning_day above 5  
     
-    $ event("hina_amagi_in_class2", "act == 'class' and hina_amagi_points >= 7 and hina_amagi_points < 17 and planning_day > 2", event.choose_one('class'), event.depends("hina_amagi_in_class1"))
+    $ event("hina_amagi_in_class2", "act == 'class' and hina_amagi_points >= 7 and hina_amagi_points < 16 and planning_day > 2", event.choose_one('class'), event.depends("hina_amagi_in_class1"))
     # event.once() makes sure it only viewable once.event.depends("hina_amagi_in_class1") - this event must have been seen first.
 
     $ event("hina_amagi_pool_opening", "act == 'pool' and hina_amagi_points > 3", event.once(), event.only())
     #$ event("hina_amagi_about_sexy_uniform", "act == 'office' and hina_amagi_points > 10 and uniform == 'sexy_uniform'", event.once(), event.only())
 
-    $ event("hina_amagi_in_class3", "act == 'class' and hina_amagi_points >= 17 and planning_day > 2", event.choose_one('class'), event.depends("hina_amagi_pool_opening"))
+    $ event("hina_amagi_in_class3", "act == 'class' and hina_amagi_points >= 15 and planning_day > 2", event.choose_one('class'), event.depends("hina_amagi_pool_opening"))
+    $ event("hina_amagi_in_class4", "act == 'class' and hina_amagi_points >= 20 and planning_day < 5", event.choose_one('class'), event.depends("hina_amagi_in_class3"))
     
     # Endings
     $ event("hina_amagi_transfer_ending", "act == 'office' and hina_amagi_points == -1", event.choose_one('office'), event.depends("hina_amagi_in_class2"))
@@ -127,7 +128,6 @@ label hina_amagi_in_class2:
             $ renpy.show("hina_amagi "+hina_amagi_outfit+"blush")
             hina_amagi "Aww [povLastName], you're so sweet!"
             $ hina_amagi_points += 2
-            return
             
         "I'm good, how are you?" if building_pool == 0:
             $ renpy.show("hina_amagi "+hina_amagi_outfit+"normal")
@@ -135,7 +135,6 @@ label hina_amagi_in_class2:
             pov "Oh, yes, sorry about the pool."
             $ renpy.show("hina_amagi "+hina_amagi_outfit+"sad")
             hina_amagi "It's okay... Some things never work out as planned."
-            return
             
         "I'm good, how are you?" if building_pool > 0:
             hina_amagi "I'm great, I'm just getting ready for swimming club!"
@@ -143,7 +142,7 @@ label hina_amagi_in_class2:
             hina_amagi "Yeah, I really do! And it's all thanks to you we got the new pool, thanks again [povTitle] [povLastName]." 
             pov "Don't mention it."
             $ hina_amagi_points += 1
-            return
+    return
 
 
 label hina_amagi_in_class3:
@@ -168,14 +167,14 @@ label hina_amagi_in_class3:
                 pov "Okay, you take care."
                 $ hina_amagi_points += 1
             
-            "Depends, have you been a bad girl?" if hina_amagi_points < 25:
+            "Depends, have you been a bad girl?" if hina_amagi_points < 20:
                 $ renpy.show("hina_amagi "+hina_amagi_outfit+"surprised")
                 hina_amagi "I... don't think so... Why?"
                 pov "Relax, I'm just pulling your leg!"
                 hina_amagi "Oh, *giggle* you're funny [povTitle] [povLastName]."
                 $ hina_amagi_points += 1
                 
-            "Depends, have you been a bad girl?" if hina_amagi_points >= 25:
+            "Depends, have you been a bad girl?" if hina_amagi_points >= 20:
                 $ renpy.show("hina_amagi "+hina_amagi_outfit+"blush")
                 hina_amagi "..."
                 hina_amagi "..."
@@ -208,7 +207,7 @@ label hina_amagi_in_class3:
                 "There she goes once again."
                 $ hina_amagi_points += 1
                 
-            "Hello Sunshine!" if hina_amagi_points < 25:
+            "Hello Sunshine!" if hina_amagi_points < 20:
                 $ renpy.show("hina_amagi "+hina_amagi_outfit+"blush")
                 hina_amagi "How cute! I like it when you call me that!"
                 pov "I know you do. So where's the light shining today?"
@@ -218,7 +217,7 @@ label hina_amagi_in_class3:
                 "You both burst into laughter and continue to play around for a short while."
                 $ hina_amagi_points += 1
                 
-            "Hello Sunshine!" if hina_amagi_points >= 25:
+            "Hello Sunshine!" if hina_amagi_points >= 20:
                 $ renpy.show("hina_amagi "+hina_amagi_outfit+"blush")
                 hina_amagi "[povTitle] [povLastName]..."
                 pov "Amagi..?"
@@ -235,6 +234,96 @@ label hina_amagi_in_class3:
                 $ hina_amagi_points += 2
         return
 
+
+label hina_amagi_in_class4:
+    
+    scene bg classroom with fade
+    $ renpy.show("hina_amagi "+hina_amagi_outfit+"happy")
+    hina_amagi "Hello [povFistName]!"
+
+    if renpy.random.randint(1,2) == 1:
+        menu:
+            "Hello Hina!":
+                $ renpy.show("hina_amagi "+hina_amagi_outfit+"blush")
+                hina_amagi "*giggle*"
+                pov "What are you giggling about today?"
+                $ renpy.show("hina_amagi "+hina_amagi_outfit+"happy")
+                hina_amagi "Oh, [povFirstName], it's just so unusual that you call me by my first name!"
+                pov "Well you call me [povFirstName] and I call you Hina."
+                $ renpy.show("hina_amagi "+hina_amagi_outfit+"blush")
+                hina_amagi "Did I do that! Oh, sorry [povTitle] [povLastName]!"
+                $ hina_amagi_points += 1
+                
+            "Hello Amagi!":
+                $ renpy.show("hina_amagi "+hina_amagi_outfit+"normal")
+                hina_amagi "A busy day?"
+                pov "Like everyday, but I always have a few minutes for you."
+                $ renpy.show("hina_amagi "+hina_amagi_outfit+"blush")
+                hina_amagi "A smooth talker like always! *giggle*"
+                $ renpy.show("hina_amagi "+hina_amagi_outfit+"happy")
+                pov "You know me!"
+                
+            "Sunshine!":
+                hina_amagi "Shine shine!"
+                pov "Having a great day?"
+                hina_amagi "Yeah, I really do! How did you know?" 
+                pov "Well I do know my day gets better when I see you."
+                $ renpy.show("hina_amagi "+hina_amagi_outfit+"blush")
+                hina_amagi "Aww, you're so nice..."
+
+        $ hina_amagi_points += 1
+        return
+    else:
+        $ renpy.show("hina_amagi "+hina_amagi_outfit+"blush")
+        hina_amagi "Umm, I mean, Hello [povLastName]!"
+        menu:
+            "Relax Hina":
+                $ renpy.show("hina_amagi "+hina_amagi_outfit+"sad")
+                hina_amagi "I... I'm sorry..."
+                pov "Don't you worry about a thing."
+                hina_amagi "...Thanks."
+                "You can see her sulking and slowly walk away."
+                $ renpy.hide("hina_amagi "+hina_amagi_outfit+"sad")
+                if hina_amagi_points > 25:
+                    menu:
+                        "Leave her be.":
+                            pass
+                        
+                        "Stop her.":
+                            "You walk up behind her a put your hand on her shoulder and she quickly turns around."
+                            $ renpy.show("hina_amagi "+hina_amagi_outfit+"surprised")
+                            "As she turns around you are standing just next to each other when she quickly throws herself in you arms."
+                            $ renpy.show("hina_amagi "+hina_amagi_outfit+"blush")
+                            hina_amagi "Sorry!"
+                            pov "Don't worry about little miss..."
+                            "She releases her grip around you and slowly back away while keeping her eyes on the ground."
+                            hina_amagi "Umm... I... I need to go now..."
+                            pov "Okay, you take care of yourself Hina."
+                            $ hina_amagi_points += 3
+                    return
+
+            "Don't worry miss":
+                $ renpy.show("hina_amagi "+hina_amagi_outfit+"blush")
+                hina_amagi "Don't think I don't respect you [povLastName], I really do!"
+                pov "I know, but respect isn't always about first name or last name."
+                hina_amagi "Well... Hmm, yeah, that's true!"
+                $ renpy.show("hina_amagi "+hina_amagi_outfit+"happy")
+                pov "Ah, that's the face I love to see!"
+                hina_amagi "*giggle* Thanks!"
+                $ hina_amagi_points += 1
+
+            "Please call me [povFirstName]":
+                $ renpy.show("hina_amagi "+hina_amagi_outfit+"blush")
+                hina_amagi "Is... Is that really okay... [povTitle] [povFirstName]?"
+                pov "Anything for you Hina."
+                $ renpy.show("hina_amagi "+hina_amagi_outfit+"normal")
+                hina_amagi "Well... Okay [povTitle] [povFirstName]!"
+                pov "You know {i}Miss{/i} Hina, you could just call me [povFirstName]."
+                $ renpy.show("hina_amagi "+hina_amagi_outfit+"happy")
+                hina_amagi "*giggle* Okay [povFirstName]!"
+                pov "That's my girl."
+                $ hina_amagi_points += 1
+        return
 
 label hina_amagi_pool_opening:
     
