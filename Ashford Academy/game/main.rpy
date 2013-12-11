@@ -165,14 +165,12 @@ label day_no_game_over:
 
     elif (planning_day >= 7):
         $ planning_day = 0
-        
+        $ building_bonus()
+        $ policy_bonus()
+           
         if persistent.mod_disable_weekly_planning == False:
             "Weekly planning day is today!"
             jump weekly_planning
-        
-        $ building_bonus()
-        $ policy_bonus()
-
 
     else:
         python:

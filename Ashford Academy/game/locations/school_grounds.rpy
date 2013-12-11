@@ -69,6 +69,8 @@ image bg school_grounds46 = "locations/school_grounds/school_grounds46.jpg"
 image bg school_grounds47 = "locations/school_grounds/school_grounds47.jpg"
 image bg school_grounds48-1 = "locations/school_grounds/school_grounds48-1.jpg"
 image bg school_grounds48-2 = "locations/school_grounds/school_grounds48-2.jpg"
+image bg school_grounds49_1 = "locations/school_grounds/school_grounds49-1.jpg"
+image bg school_grounds49_2 = "locations/school_grounds/school_grounds49-2.jpg"
 
 init:
     if persistent.mod_disable_original_events == False:
@@ -120,6 +122,7 @@ init:
         $ event("school_grounds46", "act == 'school_grounds' and morale > 40", event.choose_one('school_grounds'), priority=160)
         $ event("school_grounds47", "act == 'school_grounds' and inhibition > 75 and inhibition < 95", event.choose_one('school_grounds'), priority=170)
         $ event("school_grounds48", "act == 'school_grounds' and inhibition < 85 and uniform == ('sexy_uniform' or 'nude_uniform')", event.choose_one('school_grounds'), priority=160)
+        $ event("school_grounds49", "act == 'school_grounds' and inhibition > 70 and inhibition < 95", event.choose_one('school_grounds'), priority=170)
 
 label school_grounds1:
     $ randImg = renpy.random.choice(["1", '2'])
@@ -895,5 +898,23 @@ label school_grounds48:
         girl "Bye bye [povTitle] [povLastName]!"
         "Some students really shine like a little sun."
         $ morale += 1
+    return
+
+
+label school_grounds49:
+    $ randImg = renpy.random.choice(["1", '2'])
+    $ renpy.show("bg school_grounds49_"+randImg)
+    with fade
+    
+    if pda_rule_level > 2:
+        if renpy.random.randint(1,2) == 1:
+            "Seems like love is the air."
+        else:
+            "Puppy love sure is sweet."
+        $ morale += 1
+    else:
+        "You tell them to stop clinging to each other or suffer the consequences."
+        $ morale -= 1
+        $ inhibition -= 1 
     return
 

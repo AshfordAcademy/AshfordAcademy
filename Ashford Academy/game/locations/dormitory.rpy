@@ -45,6 +45,7 @@ image bg dormitory17 = "locations/dormitory/dormitory17.jpg"
 image bg dormitory18 = "locations/dormitory/dormitory18.jpg"
 image bg dormitory19 = "locations/dormitory/dormitory19.jpg"
 image bg dormitory20 = "locations/dormitory/dormitory20.jpg"
+image bg dormitory21 = "locations/dormitory/dormitory21.jpg"
 
 
 init:
@@ -70,6 +71,7 @@ init:
         $ event("dormitory18", "act == 'dormitory' and inhibition > 50 and inhibition < 75", event.choose_one('dormitory'), priority=180)
         $ event("dormitory19", "act == 'dormitory' and inhibition > 75 and deviance < 5", event.choose_one('dormitory'), priority=200)
         $ event("dormitory20", "act == 'dormitory' and inhibition > 50 and inhibition < 75", event.choose_one('dormitory'), priority=180)
+        $ event("dormitory21", "act == 'dormitory' and morale < 40 and inhibition < 95", event.choose_one('dormitory'), priority=180)
 
 label dormitory_introduction:
     scene bg school_grounds2 with fade
@@ -511,5 +513,11 @@ label dormitory20:
     girl "Ah! *blush* What are you doing here?"
     pov "Sorry miss, wrong door obviously!"
     $ inhibition -= 1
+    return
+
+
+label dormitory21:
+    scene bg dormitory21 with fade
+    "Those sad eyes, sometimes you just need a hug..."
     return
 

@@ -689,7 +689,7 @@ label class16:
                     girl "Ah, yes, I've been a bad girl.\nI've been a very bad girl.\nAh!"
                     "You spank and touch her some before leaving the room."
                     python:
-                        if renpy.random > 0.7:
+                        if renpy.random.randint(1,2) == 1 and inhibition > 70:
                             info("The loud sound of you spanking her seems to draw attention and a few students catch you in the act.")
                             reputation -= 1
                             deviance += 1

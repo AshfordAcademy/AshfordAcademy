@@ -19,7 +19,7 @@ init -100 python:
     persistent.mod_custom_title_screen_ild = "gui/mm_idle.png"
     persistent.mod_custom_title_screen_hover = "gui/mm_hover.png"
 
-#
+
     trigger_object = "" # these are for internal code use and should be left blank for init purposes.
     trigger_name = ""   # what they do is actually split the mod trigger into an object part, namely persistent, and the actual trigger name.
     mod_trigger1 = True
