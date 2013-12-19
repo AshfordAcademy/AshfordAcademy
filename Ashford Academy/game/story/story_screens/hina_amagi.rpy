@@ -239,7 +239,7 @@ label hina_amagi_in_class4:
     
     scene bg classroom with fade
     $ renpy.show("hina_amagi "+hina_amagi_outfit+"happy")
-    hina_amagi "Hello [povFistName]!"
+    hina_amagi "Hello [povFirstName]!"
 
     if renpy.random.randint(1,2) == 1:
         menu:
@@ -573,7 +573,7 @@ label hina_amagi_about_sexy_uniform:
                                     pov "What's on your mind little sunshine?"
                                     show hina_amagi sad
                                     hina_amagi "I-Is... This... Really okay..?"
-                                    pov "Don't worry, everything's okay and if they are not, i will make them."
+                                    pov "Don't worry, everything is okay and if they are not, i will make them."
                                     show hina_amagi blush
                                     hina_amagi "*giggle*"
                                     "Her eyes shows both a bit of confusion and bliss."
@@ -760,7 +760,7 @@ label hina_amagi_regarding_adaki:
             pov "He sure has."
             $ renpy.show("hina_amagi "+hina_amagi_outfit+"surprised")
             hina_amagi "But I haven't really thought about him before, I mean before the accident and all. Hey, I-I didn't mean that I'm thinking about him a whole lot now either!"
-            pov "Haha, it's ok, thank's for the help."
+            pov "Haha, it's ok, thanks for the help."
             $ renpy.show("hina_amagi "+hina_amagi_outfit+"normal")
             hina_amagi "Glad I could help!"
 

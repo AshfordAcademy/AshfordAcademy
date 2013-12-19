@@ -48,6 +48,9 @@ image bg sports_field32 = "locations/sports_field/sports_field32.jpg"
 image bg sports_field33-1 = "locations/sports_field/sports_field33-1.jpg"
 image bg sports_field33-2 = "locations/sports_field/sports_field33-2.jpg"
 image bg sports_field34 = "locations/sports_field/sports_field34.jpg"
+image bg sports_field35-1 = "locations/sports_field/sports_field35-1.jpg"
+image bg sports_field35-2 = "locations/sports_field/sports_field35-2.jpg"
+image bg sports_field35-3 = "locations/sports_field/sports_field35-3.jpg"
 
 init:
     if persistent.mod_disable_original_events == False:
@@ -85,6 +88,7 @@ init:
         $ event("sports_field32", "act == 'sports_field' and inhibition < 100 and inhibition > 75", event.choose_one('sports_field'), priority=180)
         $ event("sports_field33", "act == 'sports_field' and inhibition > 20", event.choose_one('sports_field'), priority=180)
         $ event("sports_field34", "act == 'sports_field' and morale > 75 and inhibition > 50", event.choose_one('sports_field'), priority=160)
+        $ event("sports_field35", "act == 'sports_field' and athletics > 50", event.choose_one('sports_field'), priority=160)
     
 label sports_field1:
     
@@ -262,7 +266,7 @@ label sports_field6:
 label sports_field7:
     
     scene bg sports_field7 with fade
-    pov "Anyone up for a double?"
+    pov "Anyone up for doubles?"
     $ athletics += 1
     return
 
@@ -314,7 +318,7 @@ label sports_field11:
 
 label sports_field12:
     
-    $ randImg = renpy.random.choice(["1", '2'])
+    $ randImg = renpy.random.choice(["1", "2"])
     $ renpy.show("bg sports_field12_"+randImg)
     with fade
     "It's all about focus."
@@ -335,7 +339,7 @@ label sports_field13:
     girl "Stop it right now!"
     scene bg sports_field13-3
     girl "What the fuck!?! S.T.O.P!"
-    guy "Relax, whe're only joking with ya."
+    guy "Relax, we're only joking with ya."
     "One girl against three boys, it can only end in one way."
     scene bg sports_field13-4
     girl "N- NO! *gasp * I don't want to!"
@@ -355,7 +359,7 @@ label sports_field13:
 
 
 label sports_field14:
-    $ randImg = renpy.random.choice(["1", '2'])
+    $ randImg = renpy.random.choice(["1", "2"])
     $ renpy.show("bg sports_field14_"+randImg)
     with fade
 
@@ -407,7 +411,7 @@ label sports_field17:
 
 
 label sports_field18:
-    $ randImg = renpy.random.choice(["1", '2'])
+    $ randImg = renpy.random.choice(["1", "2"])
     $ renpy.show("bg sports_field18_"+randImg)
     with fade
 
@@ -625,4 +629,33 @@ label sports_field34:
     else:
         "Is that a cry of fear or happiness? Girls can be so confusing."
         $ behavior -= 1
+    return
+
+
+label sports_field35:
+
+    scene bg sports_field35-1 with fade
+    if evil_points < 1:
+        girl "Ahh!"
+        "Its wonderful to see a student giving her all."
+    else:
+        "Maybe I should give her a hand..."
+        menu:
+            "Cop a feel":
+                scene bg sports_field35-2
+                if inhibition > 75:
+                    girl "Ah!"
+                    girl "What are you doing!"
+                    $ inhibition += 1
+                else:
+                    girl "Mhmm, [povTitle] [povLastName], can't keep your hands to yourself?"
+                    pov "Oh no, I'm just giving you a hand."
+                    girl "*giggle*"
+
+            "Pull it down":
+                girl "Ahh! Not here [povLastName], please!"
+                pov "No no, I can't wait"
+                girl "*sob*"
+                $ reputation -= 1
+    return
 

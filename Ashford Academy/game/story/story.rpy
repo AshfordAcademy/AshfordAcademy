@@ -142,7 +142,7 @@ label interrogation:
     pov "Yes, who am I talking to?"
     officer_adaki "This is officer Adaki from the Metro Crime Unit. We would like you to come down to the station."
     pov "Okay... What is it about?"
-    officer_adaki "We have some formalities regarding Ms. Adrianos death. Seems her family is not in the country right now, and since you're her latest employer we'd appreciate if you could fill in some of the blanks."
+    officer_adaki "We have some formalities regarding Ms. Adriano's death. Seems her family is not in the country right now, and since you're her latest employer we'd appreciate if you could fill in some of the blanks."
     pov "Sure, I mean, I was her boss but she was employed through The Agency."
     officer_adaki "Yeah, we're aware of that but you're the closest link to the questions we have."
     pov "I see, when would you like me to-"
@@ -312,7 +312,7 @@ label susan_marina_regarding_adaki:
             susan_marina "What's on your mind?"
             pov "I'm not sure, but there's something about Adaki that makes my gut react."
             susan_marina "I wouldn't dwell upon it to much. But let me know if he bothers you."
-            pov "Thank's, I will."
+            pov "Thanks, I will."
 
         "What do you make of this symbol?":
             show susan_marina normal_hand

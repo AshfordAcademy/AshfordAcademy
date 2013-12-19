@@ -98,18 +98,18 @@ label bath1:
 
 label bath2:
 
-    $ randImg = renpy.random.choice(["1", '2', '3'])
+    $ randImg = renpy.random.choice(["1", "2", "3"])
     $ renpy.show("bg bath2_"+randImg)
     with fade
 
-    "As you sneek into the bath you catch a glimpse of a few girls playing around."
+    "As you sneak into the bath you catch a glimpse of a few girls playing around."
     $ deviance += 1
     return
 
 
 label bath3:
 
-    $ randImg = renpy.random.choice(["1", '2', '3'])
+    $ randImg = renpy.random.choice(["1", "2", "3"])
     $ renpy.show("bg bath3_"+randImg)
     with fade
 
@@ -139,7 +139,7 @@ label bath4:
 
 
 label bath5:
-    $ randImg = renpy.random.choice(["1", '2', '3'])
+    $ randImg = renpy.random.choice(["1", "2", "3"])
     $ renpy.show("bg bath5_"+randImg)
     with fade
     "While wandering around the bathhouse you suddenly bump into two girls."
@@ -212,7 +212,7 @@ label bath8:
 
 label bath9:
 
-    $ randImg = renpy.random.choice(["1", '2'])
+    $ randImg = renpy.random.choice(["1", "2"])
     $ renpy.show("bg bath9_"+randImg)
     with fade
     "To some, having a bath can be a very private moment."
@@ -234,7 +234,7 @@ label bath10:
 
         "Compliment her other two friends.":
             pov "I think I prefer your other two cuties."
-            "She giggles and you realise how long you've been standing there."
+            "She giggles and you realize how long you've been standing there."
             $ inhibition -= 1
             $ deviance += 1
 
@@ -387,7 +387,7 @@ label bath16:
 
 label bath17:
 
-    $ randImg = renpy.random.choice(["1", '2'])
+    $ randImg = renpy.random.choice(["1", "2"])
     $ renpy.show("bg bath17_"+randImg)
     with fade
 
@@ -544,7 +544,7 @@ label bath23:
 
 label bath24:
 
-    $ randImg = renpy.random.choice(["1", '2'])
+    $ randImg = renpy.random.choice(["1", "2"])
     $ renpy.show("bg bath24_"+randImg)
     with fade
 
@@ -620,7 +620,7 @@ label bath26:
 
 
 label bath27:
-    $ randImg = renpy.random.choice(["1", '2'])
+    $ randImg = renpy.random.choice(["1", "2"])
     $ renpy.show("bg bath27_"+randImg)
     with fade
     "In water, all big things get weightless."

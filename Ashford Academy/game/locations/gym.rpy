@@ -41,6 +41,7 @@ image bg gym25-2 = "locations/gym/gym25-2.jpg"
 image bg gym25-3 = "locations/gym/gym25-3.jpg"
 image bg gym26 = "locations/gym/gym26.jpg"
 image bg gym27 = "locations/gym/gym27.jpg"
+image bg gym28 = "locations/gym/gym28.jpg"
 
 init:
     if persistent.mod_disable_original_events == False:
@@ -71,6 +72,7 @@ init:
         $ event("gym25", "act == 'gym' and total_days > 50", event.once(), priority=150)
         $ event("gym26", "act == 'gym' and pda_rules == 'pda_bdsm' and behavior < 50", event.once(), priority=150)
         $ event("gym27", "act == 'gym' and inhibition < 5 and deviance > 95", event.choose_one('gym'), priority=100)
+        $ event("gym28", "act == 'gym' and inhibition < 85", event.choose_one('gym'), priority=180)
         
 label gym1:
     
@@ -82,7 +84,7 @@ label gym1:
 
 label gym2:
     
-    $ randImg = renpy.random.choice(["1", '2'])
+    $ randImg = renpy.random.choice(["1", "2"])
     $ renpy.show("bg gym2_"+randImg)
     with fade
     "Hmm. It seems like this girl doesn't really care much for your attention."
@@ -108,7 +110,7 @@ label gym4:
 
 label gym5:
     
-    $ randImg = renpy.random.choice(["1", '2', '3'])
+    $ randImg = renpy.random.choice(["1", "2", "3"])
     $ renpy.show("bg gym5_"+randImg)
     with fade
     "You walked in on a girl changing her clothes after class. After a few seconds she starts screaming and you quickly run away."
@@ -148,7 +150,7 @@ label gym7:
 
 label gym8:
     
-    $ randImg = renpy.random.choice(["1", '2'])
+    $ randImg = renpy.random.choice(["1", "2"])
     $ renpy.show("bg gym8_"+randImg)
     with fade
     pov "Don't forget to stretch those muscles!"
@@ -167,7 +169,7 @@ label gym9:
 
 label gym10:
     
-    $ randImg = renpy.random.choice(["1", '2', '3'])
+    $ randImg = renpy.random.choice(["1", "2", "3"])
     $ renpy.show("bg gym10_"+randImg)
     with fade
     "You run into a girl changing her clothes before class."
@@ -359,7 +361,7 @@ label gym19:
 
 
 label gym20:
-    $ randImg = renpy.random.choice(["1", '2'])
+    $ randImg = renpy.random.choice(["1", "2"])
     $ renpy.show("bg gym20_"+randImg)
     with fade
     "Looks like you arrived just in time to witness how the schools cheerleading actually works."
@@ -390,7 +392,7 @@ label gym22:
 label gym23:
     
     scene bg gym23-1 with fade
-    "Just as you're about to enter basketball practise, you hear strange noises from the equipment store room."
+    "Just as you're about to enter basketball practice, you hear strange noises from the equipment store room."
     girl "I- I've done exactly as you said, it should be wide enough."
     "monitor" "It better be, for YOUR sake."
     girl "*gulp*"
@@ -420,7 +422,7 @@ label gym24:
 label gym25:
 
     scene bg gym25-1 with fade
-    "As you enter the girls locker room, you hear a faint sobbing. You move as quietly as you can and soon discover a girl taking a hot shower after practise."
+    "As you enter the girls locker room, you hear a faint sobbing. You move as quietly as you can and soon discover a girl taking a hot shower after practice."
     girl "I-I'll show them, I swear! One of these days anyway..."
     menu:
         "Better not let her see me.":
@@ -498,3 +500,12 @@ label gym27:
         $ inhibition -= 1
     return
 
+
+label gym28:
+    scene bg gym28 with fade    
+    if renpy.random.randint(1,2) == 1:
+        "Some girls gets quite flustered by playing basket."
+    else:
+        girl "Ah, did he look at me? *blush*"
+    return
+    

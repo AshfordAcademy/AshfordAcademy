@@ -20,7 +20,7 @@ screen inventory_screen:
     python:
         principal_inventory_counter = collections.Counter(principal_inventory) # when the inventory screen is opened, we check for items in the inventory and the amount of each of them
         principal_inventory_items = principal_inventory_counter.keys()  # assign items in a new temporary list. counter.keys index can't be called for some reason.
-        principal_inventory_amount = principal_inventory_counter.values() # assign amount of each itmes in a new temporary list. same as above for counter.values index.
+        principal_inventory_amount = principal_inventory_counter.values() # assign amount of each items in a new temporary list. same as above for counter.values index.
 
     vbox:
         xpos 20

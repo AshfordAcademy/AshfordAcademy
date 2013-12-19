@@ -108,7 +108,7 @@ label pool2:
     return
 
 label pool3:
-    $ randImg = renpy.random.choice(["1", '2'])
+    $ randImg = renpy.random.choice(["1", "2"])
     $ renpy.show("bg pool3_"+randImg)
     with fade
     "A team of good girls are cleaning the pool."
@@ -229,7 +229,7 @@ label pool15:
     
     
 label pool16:
-    $ randImg = renpy.random.choice(["1", '2'])
+    $ randImg = renpy.random.choice(["1", "2"])
     $ renpy.show("bg pool16_"+randImg)
     with fade
     
@@ -283,7 +283,7 @@ label pool20:
     
 label pool21:
     
-    $ randImg = renpy.random.choice(["1", '2'])
+    $ randImg = renpy.random.choice(["1", "2"])
     $ renpy.show("bg pool21_"+randImg)
     with fade
     "One of the girls got a mouthful of water. Are you alright?"
@@ -345,7 +345,7 @@ label pool24:
             girl "Ah, you have to be gentle, you... aaah!" 
             pov "Hush now and let the winner collect his reward."
             scene bg pool24-3
-            "With a swift grip you manoeuvre her against the shower and at the same time pull her pants to the side."
+            "With a swift grip you maneuver her against the shower and at the same time pull her pants to the side."
             girl "Hey! This wasn't part of the plan!"
             pov "I can tell you're not much of a planner, are you?"
             "She lets you have your way, maybe she's afraid of what you'd do if she refused. The thought only makes you more aroused, and you come deep inside her."

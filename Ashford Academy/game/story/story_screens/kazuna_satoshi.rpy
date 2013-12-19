@@ -46,7 +46,7 @@ init:
 label kazuna_satoshi_encounter1:
     # add the encounter point.
     $ kazuna_satoshi_points += 1
-    # the right bg is choosen
+    # the right bg is chosen
     if act == 'class':
         scene bg classroom with fade
     if act == 'office':
@@ -119,7 +119,7 @@ label kazuna_satoshi_encounter1:
             "They're laughing and joking together. These girls really enjoy Ashford."   
         $ kazuna_argument_outcome = renpy.random.choice(kazuna_encounter1_arguments)
         if kazuna_argument_outcome == "casual":
-            $ ("Passing near them, you hear that they're talking about "+renpy.random.choice(["flowers and their perfume. ","their favourite type of holiday. "])+"ordinary boring stuff.")
+            $ ("Passing near them, you hear that they're talking about "+renpy.random.choice(["flowers and their perfume. ", "their favorite type of holiday. "])+"ordinary boring stuff.")
         if kazuna_argument_outcome == "intelligent":
             "Passing near them, you hear that they're talking about their homework, looking for a solution to a tricky math problem."
             "These girls are really dedicated to their studies."
@@ -263,7 +263,7 @@ label kazuna_satoshi_encounter4:
     scene bg school_grounds with fade
     $ speaker = girl
     $ kazuna_dress = "dressed"
-    "You've had a load of paperwork, the evening falls as you set foot on the schoolground. There's only a few people around, most of the students have already gone home."
+    "You've had a load of paperwork, the evening falls as you set foot on the school grounds. There's only a few people around, most of the students have already gone home."
     show kazuna_satoshi dressed normal at center
     "Your attention is drawn towards a girl just leaving the main building."
     pov "I think I've met her before."
@@ -331,7 +331,7 @@ label kazuna_satoshi_encounter4:
 #    "N
 #            $ renpy.show("kazuna_satoshi "+kazuna_dress+" happy", at_list=[center])
 #            "When you walk near them they are all kind and cheerful."
-#            speaker "How are you doing Mr [povname]?"
+#            speaker "How are you doing Mr [povName]?"
 #            pov "I'm good, this is a nice day. \nI should really give you permission to have class outdoors, don't you think?"
 #            $ renpy.show("kazuna_satoshi "+kazuna_dress+" surprised", at_list=[center])
 #            speaker "R-Really!? It would be awesome! \nCan we really do it?"

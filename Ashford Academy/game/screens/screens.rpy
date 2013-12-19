@@ -807,7 +807,7 @@ screen buildings_screen:
                 yfill True
                 yalign 1.0
                 hbox:
-                    if building_cost != 0:
+                    if building_level < len(building_cost_array) -2:
                         $ building_next = building_level + 1
                     else:
                         $ building_next = 'Max'
@@ -831,8 +831,8 @@ screen buildings_screen:
                             hbox:
                                 text "{size=30}  Level :   {/size}" # some space padding is used to avoid other grids becoming larger than this and cause a bit of moving around at certain occasions.
                             hbox:
-                                if building_level < len(building_cost_array) -2: #checks if next level is the last one, based on the each building costs.
-                                    text "{size=30}Max{/size}"
+                                if building_cost == 0: #checks if next level is the last one, based on the each building costs.
+                                    text "{size=30}Max1{/size}"
                                 else:
                                     text "{size=30}[building_level] -> [building_next]{/size}"
                         grid 2 1:
@@ -922,7 +922,7 @@ screen buyables_screen:
 
             elif buyable == "hyper_anatomic_body":
                 add "buildings/classrooms.jpg"
-                text "Anatomical models based on pornstarts, since we all know that porn is {i}real{/i}. \nUnlocks hyper sexualized human models."
+                text "Anatomical models based on pornstars, since we all know that porn is {i}real{/i}. \nUnlocks hyper sexualized human models."
 
             elif buyable == "magic_accounting":
                 add "buildings/classrooms.jpg"

@@ -38,7 +38,7 @@ init -1 python hide:
     # These control the name and version of the game, that are reported
     # with tracebacks and other debugging logs.
     config.name = "Ashford Academy"
-    config.version = "0.4"
+    config.version = "0.5"
 
     #########################################
     # Themes
@@ -249,7 +249,7 @@ init -1 python hide:
     #########################################
     ## This is the name of the directory where the game's data is
     ## stored. (It needs to be set early, before any other init code
-    ## is run, so the persisten information can be found by the init code.)
+    ## is run, so the persistent information can be found by the init code.)
 python early:
     config.save_directory = "tester-1350773534"
 

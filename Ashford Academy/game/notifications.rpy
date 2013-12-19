@@ -86,7 +86,7 @@ label NPA_mail6:
 
 label script:
 
-    $ add_message("Thanks", "Hina Amagi", "Hi [povLastName], sorry to msg u... I just wanna thank you for heping me out the other day! Thx!", "", "hina_amagi_reply")
+    $ add_message("Thanks", "Hina Amagi", "Hi [povLastName], sorry to msg u... I just wanna thank you for helping me out the other day! Thx!", "", "hina_amagi_reply")
     $ add_message("Miss u <3", "Jen", "Miss u <3", "test.jpg")
     
     return

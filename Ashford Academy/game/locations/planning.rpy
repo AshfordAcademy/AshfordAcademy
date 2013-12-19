@@ -318,7 +318,7 @@ label monthly_planning:
                 renpy.transition(fade, None, False)
                 if renpy.random.randint(1, 101) < athletics:
                     renpy.scene()
-                    sports_tourney_win = renpy.random.choice(["sports_tourney1", 'sports_tourney3', 'sports_tourney4' ])
+                    sports_tourney_win = renpy.random.choice(["sports_tourney1", "sports_tourney3", "sports_tourney4"])
                     renpy.show("bg "+sports_tourney_win)
                     teacher_susan("The Ashford Volleyball Team did great and won every match including the finals!")
                     athletics += 1
@@ -389,7 +389,7 @@ label monthly_planning:
                         renpy.transition(fade, None, False)
                         if renpy.random.randint(1, 3) == 1:
                             renpy.scene()
-                            school_trip = renpy.random.choice(["school_trip1", "school_trip2","school_trip3", "school_trip4", "school_trip5"])
+                            school_trip = renpy.random.choice(["school_trip1", "school_trip2", "school_trip3", "school_trip4", "school_trip5"])
                             renpy.show("bg "+school_trip)
                             teacher_susan("Everyone had a great time with lots of fun.")
                             morale += 2

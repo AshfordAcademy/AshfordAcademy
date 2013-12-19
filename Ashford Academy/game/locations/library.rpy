@@ -38,6 +38,7 @@ image bg library29-1 = "locations/library/library29-1.jpg"
 image bg library29-2 = "locations/library/library29-2.jpg"
 image bg library30-1 = "locations/library/library30-1.jpg"
 image bg library30-2 = "locations/library/library30-2.jpg"
+image bg library31 = "locations/library/library31.jpg"
 
 init:
     if persistent.mod_disable_original_events == False:
@@ -71,6 +72,7 @@ init:
         $ event("library28", "act == 'library' and inhibition < 90 and inhibition > 60", event.choose_one('library'), priority=160)
         $ event("library29", "act == 'library' and inhibition < 90", event.choose_one('library'), priority=160)
         $ event("library30", "act == 'library' and academics > 30 and uniform == 'no_uniform' and building_library > 2", event.choose_one('library'), priority=160)
+        $ event("library31", "act == 'library' and academics > 30 and building_library > 2", event.choose_one('library'), priority=150)
         
 label library1:
     
@@ -337,7 +339,7 @@ label library18:
     if renpy.random.randint(1,2) > 1:
         "Not every student enjoys the company of the principal."
     else:
-        $ "You meet a student in the library and decide to help her find a good book. You end up giving her a book by "+renpy.random.choice(["Carl Gustav Jung.","Stephen Hawking", "Michio Kaku", "Lawrence Maxwell Krauss", "Paul Ekman"])+"."
+        $ "You meet a student in the library and decide to help her find a good book. You end up giving her a book by "+renpy.random.choice(["Carl Gustav Jung.", "Stephen Hawking", "Michio Kaku", "Lawrence Maxwell Krauss", "Paul Ekman"])+"."
     $ academics += 1
     return
 
@@ -500,7 +502,7 @@ label library27:
     
     scene bg library27 with fade
     if renpy.random.randint(1,2) == 1:
-        "A few uncertain steps towards your secret crush can sometimes end with a lovly scene."
+        "A few uncertain steps towards your secret crush can sometimes end with a lovely scene."
         $ morale += 1
     else:
         "Sometimes the privacy and silence of the library is exactly what a student need."
@@ -577,5 +579,13 @@ label library30:
     $ inhibition -= 1
 
     girl "Well do you know anything about [topic]?"
+    return
+
+
+label library31:
+    
+    scene bg library31 with fade
+    $ topic = random_topic("academics")
+    "Installing computers in the library seems to have been a great idea. Now students spend even more time studying [topic]!"
     return
 

@@ -1,6 +1,6 @@
 ﻿image acad_gain = "gui/acad-chibi.png"
 
-screen notify:
+screen notify_alert:
     zorder 100
     add message at _notify_transform 
 

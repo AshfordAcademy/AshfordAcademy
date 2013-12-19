@@ -2,15 +2,15 @@ init python:
     def random_topic(topic):
         if topic == "academics":
             if academics >= 100:
-                return renpy.random.choice(["particle physics", 'Jungian psychology', 'astrophysics'])
+                return renpy.random.choice(["particle physics", "Jungian psychology", "astrophysics"])
             if academics >= 75:
-                return renpy.random.choice(["differential equations", 'Freudian psychology', 'linguistics'])
+                return renpy.random.choice(["differential equations", "Freudian psychology", "linguistics"])
             if academics >= 50:
-                return renpy.random.choice(["linear algebra", 'sociology', 'organic chemistry', "environmental science", "political science"])
+                return renpy.random.choice(["linear algebra", "sociology", "organic chemistry", "environmental science", "political science"])
             if academics >= 25:
-                return renpy.random.choice(["history", 'languages', 'literature', "math", "art"])
+                return renpy.random.choice(["history", "languages", "literature", "math", "art"])
             else:
-                return renpy.random.choice(["the alphabet", 'reading', 'plus and minus'])
+                return renpy.random.choice(["the alphabet", "reading", "plus and minus"])
 
 # This is the latest playground, trying out more dynamic and generic events.
 

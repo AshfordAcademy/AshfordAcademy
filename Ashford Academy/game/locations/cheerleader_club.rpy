@@ -57,7 +57,7 @@ label cheerleader_club4:
     girl "N-no! I can explain!"
     pov "Take it easy. Looks like someone left in a hurry?"
     girl "B-but it's not what it looks like!"
-    pov "The school policy is pretty strict when it comes to immoral behaviour, but you know that."
+    pov "The school policy is pretty strict when it comes to immoral behavior, but you know that."
     girl "I-I'm so... SORRY!"
     pov "This is a serious matter young lady."
     menu:
@@ -74,7 +74,7 @@ label cheerleader_club4:
             girl "But p-promise that you won't expel him!"
             pov "You are not in the position to demand anything young lady. Give me his name and go have a shower."
             girl "A-alright..."
-            "I know they're young and all, but someone's gotta teach them some basic behaviour and manners!!"
+            "I know they're young and all, but someone's gotta teach them some basic behavior and manners!!"
             $ deviance -= 1
             
         "So girls just want to have fun, eh?" if povGender == "Male":
@@ -110,7 +110,7 @@ label cheerleader_club4:
 label cheerleader_club5:
     
     scene bg cheerleader_club5 with fade
-    girl "Oh [povTitle] [povName]! Have you come to watch us practise?"
+    girl "Oh [povTitle] [povName]! Have you come to watch us practice?"
     pov "Hello girls, how's it going?"
     girl "Just swell! Since we won the regional cup, coach said that we should try building our routine from a more trademark point of view."
     pov "Sounds interesting."
@@ -151,7 +151,7 @@ label cheerleader_club5:
             girl "Oh no! We can't move!"
             pov "Forget I said anything!"
             girl "Total amnesia!"
-            pov "Keep practising girls!!"
+            pov "Keep practicing girls!!"
             girl "Who are you?"
             "A lame duck..."
     return

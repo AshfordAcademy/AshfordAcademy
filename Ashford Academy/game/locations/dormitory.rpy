@@ -1,5 +1,5 @@
 image bg dormitory1-1 = "locations/dormitory/dormitory1-1.jpg"
-image bg dormitory 1-2 = "locations/dormitory/dormitory1-2.jpg"
+image bg dormitory1-2 = "locations/dormitory/dormitory1-2.jpg"
 image bg dormitory2 = "locations/dormitory/dormitory2.jpg"
 image bg dormitory3 = "locations/dormitory/dormitory3.jpg"
 image bg dormitory4 = "locations/dormitory/dormitory4.jpg"
@@ -49,6 +49,7 @@ image bg dormitory21 = "locations/dormitory/dormitory21.jpg"
 
 
 init:
+    $ dormitory22_level = 0
     $ event("dormitory_introduction", "act == 'dormitory'", event.once(), event.only())
     if persistent.mod_disable_original_events == False:
         $ event("dormitory1", "act == 'dormitory'", event.choose_one('dormitory'), priority=200)
@@ -165,7 +166,7 @@ label dormitory6:
     if deviance < renpy.random.randint(1,10) and inhibition > (85 + renpy.random.randint(1,10) ):
         if deviance < renpy.random.randint(1,10):
             if renpy.random.randint(1,2) == 1:
-                "You walk into the dormatory and see a girl reading in bed."
+                "You walk into the dormitory and see a girl reading in bed."
                 scene bg dormitory6-7
                 girl "W-hoa..."
                 scene bg dormitory6-8
@@ -174,7 +175,7 @@ label dormitory6:
                 "Hmm, I wonder what she was reading?"
                 $ inhibition -= 1
             else:
-                "You walk into the dormatory and see a girl reading in bed."
+                "You walk into the dormitory and see a girl reading in bed."
                 scene bg dormitory6-7
                 girl "W-hoa..."
                 scene bg dormitory6-8
@@ -283,7 +284,7 @@ label dormitory8:
         pov "Hello girls!"
         girl1 "*giggle*"
         girl2 "*sigh*"
-        pov "Oh, I won't bother you. I was just wandering around, thinking about the unscheduled test you're going to have tomorrow... ah chucks! Did I say that out loud?"
+        pov "Oh, I won't bother you. I was just wandering around, thinking about the unscheduled test you're going to have tomorrow... ah shucks! Did I say that out loud?"
         scene bg dormitory8-4
         girl1 "W-what?"
         girl2 "T-test?"
@@ -316,7 +317,7 @@ label dormitory9:
         "Oh, nevermind. Dry those tears sweetie, there's nothing to be afraid of here.":
             scene bg dormitory9-2
             "Girlie" "Are you sure?"
-            pov "I can asure you that no Boogeyman will ever find his way to Ashford while I'm principal."
+            pov "I can assure you that no Boogeyman will ever find his way to Ashford while I'm principal."
             "girlie" "Really?"
             pov "Really."
             "girlie" "Pinkie promise?"
@@ -422,7 +423,7 @@ label dormitory12:
 
 label dormitory13:
     
-    $ randImg = renpy.random.choice(["a", 'b'])
+    $ randImg = renpy.random.choice(["a", "b"])
     $ renpy.show("bg dormitory13_1"+randImg)
     with fade
     "glasses" "Hey Uki, check out my..."
@@ -432,7 +433,7 @@ label dormitory13:
         "No I am not.":
             pov "Haha, I'm afraid not!"
             "glasses" "..."
-            "She doesn't seem to respond that well to your disarming sense of humour."
+            "She doesn't seem to respond that well to your disarming sense of humor."
             $ morale -= 1
 
         "Yes I am!":
@@ -520,4 +521,97 @@ label dormitory21:
     scene bg dormitory21 with fade
     "Those sad eyes, sometimes you just need a hug..."
     return
+
+
+label dormitory22:
+    if dormitory22_level == 0:
+        scene bg dormitory22-1 with fade
+        girl "Hey there [povTitle] [povLastName], what are you up to?"
+        if inhibition > 90:
+            pov "Not much, just making sure everyone is safe and sound!"
+            girl "*giggle* That's our principal!"
+        else:
+            menu:
+                "It's cute girl inspection day!":
+                    scene bg dormitory22-2
+                    girl "Oh... So you think I'm cute [povLastName]?"
+                    pov "I think so very much."
+                    girl "*giggle* You're such a sweet talker!"
+                    if deviance > 0:
+                        pov "Can I see just how cute you are?"
+                        scene bg dormitory22-3
+                        girl "Umm... Something like this..?"
+                        if deviance > 5 or inhibition < 85:
+                        menu:
+                            "Good girl":
+                                girl "*giggle* You want to {i}inspect{/i} me some more?"
+                                pov "I sure do miss, I sure do."
+                                scene bg dormitory22-5
+                                girl "So... {w}Do you like what you see?"
+                                pov "I {i}love{/i} what I see, you have a great body."
+                                girl "*giggle* Thanks [povLastName]!"
+                                $ dormitory22_level = 1
+                                
+                            "What's under that skirt of yours?":
+                                scene bg dormitory22-4
+                                girl "Is this {i}really{/i} cute girl inspection day?"
+                                pov "Yeah, yeah, trust me."
+                    
+                "Just making sure everyone is safe and sound!":
+                    girl "*giggle* That's our principal!"
+        
+        elif dormitory22_level == 1:
+            scene bg dormitory22-1 with fade
+            girl "Hey [povTitle] [povLastName], is it inspection day today?"
+            menu:
+                "Not today":
+                    if inhibition < 90 or deviance > 5:
+                        girl "Aww, I was looking forward to it..."
+                    else:
+                        girl "Okay, you have a good evening then!"
+                
+                "I want to inspect all of you" if povGender != "female":
+                    if inhibition < 90 or deviance > 10:
+                        scene bg dormitory22-5
+                        girl "Like this?"
+                        pov "That's definitely a good start, but I was considering something a little more in depth."
+                        girl "...In depth..?"
+                        pov "You don't mind do you?"
+                        girl "..."
+                        scene bg black
+                        pov "Lie down... Good girl. Now spread your legs and don't worry about a thing."
+                        scene bg dormitory22-6
+                        girl "Umm... *giggle* Like this?"
+                        pov "Very good, now it's time to remove those cute panties of yours."
+                        girl "..."
+                        girl "Umm, please don't look at it directly [povLastName]..."
+                        scene bg dormitory22-7
+                        pov "Mhmm, your tight... I like that."
+                        girl "Ah! S-s-slowly [povLastName]!"
+                        girl "AH! Y-you're so big... Mhmm... S-slowly!"
+                        "You slowly push deeper between her legs."
+                        scene bg dormitory22-8
+                        girl "Ah! Ahhh! *gasp* Y-you w-will break me-AH!"
+                        pov "Don't worry miss."
+                        "Before ending your sentence you push harder into her."
+                        scene bg dormitory22-9
+                        girl "AH! Ah! Mhmmm, I-it feels *gasp* so.... Mhmm-good!"
+                        "You feel how she starts twitching and gets closer to climax."
+                        girl "Oh, pl-please! Ah! AH! M-more!"
+                        scene bg dormitory22-10
+                        girl "Ahhhh! *gasp* Mhmmm... Oh [povLastName]..."
+                        pov "Good girl."
+                        "You pat her head and clean yourself off before leaving."
+                        $ deviance += 1
+                        $ dormitory22_level += 1
+                        
+                    else:
+                        scene bg dormitory22-4
+                        girl "...{w} Can i go to sleep now?"
+                        pov "Yeah... Sure."
+                
+                "It's your turn to inspect me" if povGender != "female":
+                    if inhibition < 90 or deviance > 15:
+    return
+
 

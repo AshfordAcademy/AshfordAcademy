@@ -81,7 +81,7 @@ label cafeteria4:
 
 label cafeteria5:
 
-    $ rendEvent = renpy.random.choice(["1", '2', '3'])
+    $ rendEvent = renpy.random.choice(["1", "2", "3"])
     
     if rendEvent == "1":
         scene bg cafeteria5-1 with fade
@@ -90,7 +90,7 @@ label cafeteria5:
     
     elif rendEvent == "2":
         scene bg cafeteria5-1 with fade
-        waitress "Ah, mr [povName]!"
+        waitress "Ah, [povTitle] [povName]!"
         pov "Hello, how's business?"
         scene bg cafeteria5-2
         waitress "It's busy busy!"

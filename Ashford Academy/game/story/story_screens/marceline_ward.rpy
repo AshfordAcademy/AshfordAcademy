@@ -308,7 +308,7 @@ label marceline_ward_regarding_adaki:                                           
             marceline_ward "Was what?"
             pov "Did he solve the case?"
             marceline_ward "Oh! I... I don't remember! How silly! Here I am making a point out of that he's such a thorough detective, I feel so ignorant."
-            pov "Relax, it could have slipped anybody's mind."
+            pov "Relax, it could have slipped anybodies mind."
             show marceline_ward happy
             marceline_ward "R-really? I mean of course!"
             pov "You've been most helpful Marceline."
@@ -323,7 +323,7 @@ label marceline_ward_regarding_adaki:                                           
             marceline_ward "Hmm, it does look somewhat familiar."
             pov "Yes?"
             show marceline_ward normal
-            marceline_ward "I wonder... Could it be from some sort of jewellery?"
+            marceline_ward "I wonder... Could it be from some sort of jewelery?"
             pov "I guess it's possible, but have you actually seen it?"
             show marceline_ward 7
             marceline_ward "I'm picking my brain but right now I'm getting nothing."
@@ -331,7 +331,7 @@ label marceline_ward_regarding_adaki:                                           
             marceline_ward "But it's frustrating!"
             show marceline_ward 2
             pov "You do look cute when you're frustrated."
-            marceline_ward "Ah, thank's! But I'm gonna keep trying to come up with where I've might seen it."
+            marceline_ward "Ah, thanks! But I'm gonna keep trying to come up with where I've might seen it."
             pov "That's great, let me know when you do, right?"
             show marceline_ward 2
             marceline_ward "Right!"

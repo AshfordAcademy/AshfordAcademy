@@ -59,7 +59,7 @@ init python:
     # Image dissolve Transitions.
     circleirisout = ImageDissolve("transitions/id_circleiris.png", 1.0, 8)
     circleirisin = ImageDissolve("transitions/id_circleiris.png", 1.0, 8, reverse=True)
-
+    flash = Fade(.25, 0, .75, color="#fff")
     # Content options - can be changed in the options screen. Will be used mostly for third-party content.
     persistent.content_list = dict(googirls=False, tentacles=False, catgirls=False, loli=False)
 
@@ -295,9 +295,9 @@ label night:
     if planning_day == 0:
         python:
             if povGender == "male":
-                drink = renpy.random.choice(["Jack Daniels", 'Glenfiddich', 'Bagpiper', 'Captain Morgan', 'Red label', 'Ole Smoky', 'Laphroaig', 'Yamazaki', 'Black Label', 'Teerenpeli'])
+                drink = renpy.random.choice(["Jack Daniels", "Glenfiddich", "Bagpiper", "Captain Morgan", "Red label", "Ole Smoky", "Laphroaig", "Yamazaki", "Black Label", "Teerenpeli"])
             elif povGender == "female":
-                drink = renpy.random.choice(["Chateau d'Yquem", 'Musella', 'Bourgogne Chardonnay', 'Abraxas', 'Hidden Rock'])
+                drink = renpy.random.choice(["Chateau d'Yquem", "Musella", "Bourgogne Chardonnay", "Abraxas", "Hidden Rock"])
             else:
                 drink = "Error"
         "After a long day of planning you decide to pour yourself a glass of [drink]."

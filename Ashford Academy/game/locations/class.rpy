@@ -73,6 +73,7 @@ image bg class49 = "locations/class/class49.jpg"
 image bg class50 = "locations/class/class50.jpg"
 image bg class51 = "locations/class/class51.jpg"
 image bg class52 = "locations/class/class52.jpg"
+image bg class53 = "locations/class/class53.jpg"
 ## image bg class99 = "locations/class/class99.jpg"
 
 define class15_sex = False
@@ -136,6 +137,7 @@ init:
         $ event("class50", "act == 'class' and reputation > 15", event.choose_one('class'), priority=180)
         $ event("class51", "act == 'class' and inhibition < 85", event.choose_one('class'), priority=160)
         $ event("class52", "act == 'class' and building_cafeteria > 0", event.choose_one('class'), priority=160)
+        $ event("class53", "act == 'class' and building_classrooms > 3", event.choose_one('class'), priority=160)
         
         #$ event("class99", "act == 'class' and inhibition < 70 and deviance > 25 and good_points > 0", event.once(), priority=50)
         
@@ -412,7 +414,7 @@ label class8:
             girl "*sob* *sob* Th... *sob* ks..."
             guy "Hush stupid. We where just messing around-"
             pov "Stay back. Shut up. And don't you leave this room."
-            girl "*sob* Thank... *sob* you... mr [povLastName] *sob*"
+            girl "*sob* Thank... *sob* you... [povTitle] [povLastName] *sob*"
             pov "It's alright. This wasn't your fault."
             "You help the girl to the nurse and hand the guys over to the police."
             $ behavior += 2
@@ -555,7 +557,7 @@ label class14:
         "Give her a reprimand.":
             $ behavior += 1
             $ deviance -= 1
-            pov "I want you to go home right now and think about your behaviour. You don't want the other students to think that you're a bad girl, right?"
+            pov "I want you to go home right now and think about your behavior. You don't want the other students to think that you're a bad girl, right?"
             "She shakes her head and her eyes start to water."
 
         "Degrade her.":
@@ -653,7 +655,7 @@ label class15_2:
     show teacher_may normal
     "You escort the unhappy and worried teacher back to your office."
     teacher_may "I wasn't being that unreasonable-"
-    pov "You were assaulting a student. That's not just a firing offence, that's jail time."
+    pov "You were assaulting a student. That's not just a firing offense, that's jail time."
     "The teacher suddenly seems very worried."
     pov "If I report it, that is. If you don't want me to report you, I'll need you to do something for me."
     "She looks at you with confusion until you wheel your chair out from behind your desk and unzip your pants."
@@ -663,8 +665,8 @@ label class15_2:
     "She wavers for a moment, unsure. But you motion to pick up the phone on your desk, looking her straight in the eyes, and she takes a seat. With a deep breath, she pulls down her top and does her best to look stoic. You waste no time in taking advantage."
     scene bg class15-3
     "After you're satisfied you tell her:"
-    pov "A very productive counselling session. We'll have to repeat this regularly to ensure you get the message. No more assaulting students, and no more interfering with the boys. Understood?"
-    teacher_susan "... Yes sir."
+    pov "A very productive counseling session. We'll have to repeat this regularly to ensure you get the message. No more assaulting students, and no more interfering with the boys. Understood?"
+    teacher_susan "... Yes [povTitle]."
     "The teacher unhappily leaves the room."
     $ class15_sex = True
     $ deviance += 1
@@ -699,7 +701,7 @@ label class16:
                             info("As you leave the room you walk past a few students. That was a close call.")
                             deviance += 1
                             inhibition -=1
-                            behvaiour += 1
+                            behavior += 1
                     
                 "Degrade her in front of her class." if pda_rules == 'pda_bdsm' or behavior_rules == 'behavior_no_limit':
                     "You assemble the class while leaving the girl leaning over the table."
@@ -715,7 +717,7 @@ label class16:
                     class "..."
                     pov "Do you understand class? This is what happens to bad girls."
                     class "Yes [povTitle] [povLastName]."
-                    "As you leave the room you are unsure if you motivated or discouraged the behaviour."
+                    "As you leave the room you are unsure if you motivated or discouraged the behavior."
                     $ morale -= 1
                     $ deviance += 2
                     $ inhibition +=3
@@ -837,7 +839,7 @@ label class22:
 label class23:
 
     scene bg class23 with fade
-    "Immoral behaviour! I love it!"
+    "Immoral behavior! I love it!"
     python:
         if renpy.random.randint(1,4) == 1:
             reputation -= 1
@@ -1004,7 +1006,7 @@ label class30:
             girl "I'm-"
             pov "Oh for fuck's sake spit it out."
             girl "... * sob * ... "
-            pov "How many of you little dramaqueens must I endure?"
+            pov "How many of you little drama-queens must I endure?"
             girl "H- how do you-"
             pov "I mean, since I got here, I don't know just how many of your kind I've encountered."
             girl "My... my kind?"
@@ -1036,7 +1038,7 @@ label class30:
             girl "Ouch!"
             "You lean in on her, and as you keep a firm grip of her shoulders, you whisper in her ear:"
             pov "You are fat. You should kill yourself."
-            "You let her go and look at her. She looks like she's gonna throw up. You give her your most constrained smile, turn around and start to whistle as you walk  down the corridor. You don't look back, not even once."
+            "You let her go and look at her. She looks like she's gonna throw up. You give her your most constrained smile, turn around and start to whistle as you walk down the corridor. You don't look back, not even once."
             $ evil_points += 1
             $ morale -= 3
     return
@@ -1322,10 +1324,19 @@ label class51:
 
 
 label class52:
+
     scene bg class52:
     girl "Principal povName! Thank you very much for getting us our very own café!"
     pov "Whoa, you're welcome!"
     girl "I really am a cake and cookie kind'a girl! I better be careful or I'm bound to look like a sumo-wrestler in just a couple of weeks!"
     pov "What, that's... You be careful then..."
     girl "I will <3"
-return
+    return
+
+
+label class53:
+
+    scene bg class53:
+    "Every now and then you just need to take a break from work and empty your mind."
+    return
+

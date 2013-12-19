@@ -6,8 +6,8 @@
 ########################################################
 
 init python:
-    mod_trigger3 = False
-    mod_list.insert(0,('KRAshford Academy','Full','0.1','0.4','unstable','mod_trigger3')) # this is how mod info is added to the list.
+    mod_trigger_krashford = False
+    mod_list.insert(0,('KRAshford Academy','Full','0.1','0.5','unstable','mod_trigger3')) # this is how mod info is added to the list.
     
     #persistent.mod_disable_original_stats = True
     #persistent.mod_disable_original_events = True

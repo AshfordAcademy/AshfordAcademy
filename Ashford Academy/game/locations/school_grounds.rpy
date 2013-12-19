@@ -125,7 +125,7 @@ init:
         $ event("school_grounds49", "act == 'school_grounds' and inhibition > 70 and inhibition < 95", event.choose_one('school_grounds'), priority=170)
 
 label school_grounds1:
-    $ randImg = renpy.random.choice(["1", '2'])
+    $ randImg = renpy.random.choice(["1", "2"])
     $ renpy.show("bg school_grounds1_"+randImg)
     with fade
     "She looks really happy. This school sure is the right place for her."
@@ -134,7 +134,7 @@ label school_grounds1:
 
 
 label school_grounds2:
-    $ randImg = renpy.random.choice(["1", '2'])
+    $ randImg = renpy.random.choice(["1", "2"])
     $ renpy.show("bg school_grounds2_"+randImg)
     with fade
     "Some girls are having a break after class."
@@ -539,7 +539,7 @@ label school_grounds24:
 
 
 label school_grounds25:
-    $ randImg = renpy.random.choice(["1", '2'])
+    $ randImg = renpy.random.choice(["1", "2"])
     $ renpy.show("bg school_grounds25_"+randImg)
     with fade
     "Ah, the young at heart. Not a sorrow in sight!"
@@ -556,7 +556,7 @@ label school_grounds26:
     pov "Fine, just fine thanks for asking."
     "Her innocence combined with those perky breasts makes for a helluva blood rush to the old ding ding dong."
     pov "Say, that's a nice set of... flowers you got there."
-    girl "Oh, thank's for noticing! I don't know who they're from though, they were waiting for me by my locker this morning."
+    girl "Oh, thanks for noticing! I don't know who they're from though, they were waiting for me by my locker this morning."
     menu:
         "Seems you've got yourself a secret admirer.":
             girl "*giggles* I guess that comes with being the President."
@@ -565,7 +565,7 @@ label school_grounds26:
 
         "Just be careful, you never know who it might be from.":
             girl "Why Principal [povLastName], do i detect a certain jealousy?"
-            "That snouty little bitch, who the hell does she think she is?"
+            "That snotty little bitch, who the hell does she think she is?"
             pov "I'm sorry, but I have an important meeting to attend. It's about a recent series of events where several young students have been courted with flowers, and then brutally murdered."
             girl "???"
             pov "Have a good day now."
@@ -644,7 +644,7 @@ label school_grounds28:
 
 
 label school_grounds29:
-    $ randImg = renpy.random.choice(["1", '2'])
+    $ randImg = renpy.random.choice(["1", "2"])
     $ renpy.show("bg school_grounds29_"+randImg)
     with fade
     
@@ -745,7 +745,7 @@ label school_grounds37:
 
     scene bg school_grounds37 with fade
     if renpy.random.randint(1,2) == 1:
-        "No offence, but sometimes you just want to sit by yourself."
+        "No offense, but sometimes you just want to sit by yourself."
     else:
         "Sometimes you just want to play with yourself and no other."
     $ morale += 1
@@ -796,7 +796,7 @@ label school_grounds39:
 
 label school_grounds40:
 
-    $ randImg = renpy.random.choice(["1", '2'])
+    $ randImg = renpy.random.choice(["1", "2"])
     $ renpy.show("bg school_grounds40_"+randImg)
     with fade
     "It's always nice to hang out with your friends."
@@ -840,7 +840,7 @@ label school_grounds44:
 
 
 label school_grounds45:
-    $ randImg = renpy.random.choice(["1", '2'])
+    $ randImg = renpy.random.choice(["1", "2"])
     $ renpy.show("bg school_grounds45_"+randImg)
     with fade
     
@@ -902,7 +902,7 @@ label school_grounds48:
 
 
 label school_grounds49:
-    $ randImg = renpy.random.choice(["1", '2'])
+    $ randImg = renpy.random.choice(["1", "2"])
     $ renpy.show("bg school_grounds49_"+randImg)
     with fade
     

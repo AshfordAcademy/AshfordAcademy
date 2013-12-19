@@ -73,7 +73,7 @@ label office2:
 label office3:
     
     scene bg office with fade
-    "I just got these two girls sent to my office. I've been told that they have been involved in immoral behaviour."
+    "I just got these two girls sent to my office. I've been told that they have been involved in immoral behavior."
     pov "So tell me girls, how come you are here?"
     girl1 "..."
     girl2 "Well... *Looks at the other girl*"
@@ -187,12 +187,12 @@ label office5:
                 teacher "Umm... I have to go." 
                 $ morale -= 1
 
-        "Sorry, I't wasn't my intention to stare." if inhibition > 70:
+        "Sorry, It wasn't my intention to stare." if inhibition > 70:
             teacher "Don't worry [povTitle] [povLastName], I understand."
             "She smiles and walk away."
             $ morale += 1
             
-        "Sorry, I't wasn't my intention to stare." if inhibition <= 70:
+        "Sorry, It wasn't my intention to stare." if inhibition <= 70:
             teacher "Oh... you don't like them?"
             "She smirks and walk away."
             $ morale -= 1
@@ -203,7 +203,7 @@ label office6:
     
     scene bg office6 with fade
     if deviance < 25:
-        "You bump into a girl waiting for counselling. Just because you're bright and beautiful doesn't mean you sleep well at night."
+        "You bump into a girl waiting for counseling. Just because you're bright and beautiful doesn't mean you sleep well at night."
     else:
         "You know you're supposed to help and guide them, but sometimes you just want to see what they taste like."
     return
@@ -379,7 +379,7 @@ label office13:
 label office14:
     
     scene bg office14 with fade
-    "A couple of roleplaying geeky girls have been called to the principals office. An incident involving cutting off the hair of a cheerleader calls for a few strict words. The girls stayed in character through out the meeting."
+    "A couple of role-playing geeky girls have been called to the principals office. An incident involving cutting off the hair of a cheerleader calls for a few strict words. The girls stayed in character through out the meeting."
     $ behavior += 1
     return
 
@@ -565,7 +565,7 @@ label office19:
 label office20:
     
     scene bg office20 with fade
-    "Whats the differense between counceling and cuddling? Let's find out!"
+    "Whats the difference between counseling and cuddling? Let's find out!"
     if renpy.random.randint(1,3) == 1:
         $ red_orb += 1
     else:
@@ -608,7 +608,7 @@ label office22:
 label office23:
     
     scene bg class15-2 with fade
-    "May returns for her counselling session."
+    "May returns for her counseling session."
     pov "Say it again."
     "She speaks in between slurping thrusts between her breasts into her mouth."
     teacher_may "I'm sorry for assaulting a student. I will not assault students. I won't... I won't stop boys from having their fun."

@@ -2,8 +2,12 @@
 errors listed below, and try again.
 
 
-File "game/story/story_screens/hina_amagi.rpy", line 289: choice menuitem expects a non-empty block.
-    "Leave her be.":
-                    ^
+File "game/locations/dormitory.rpy", line 544: if statement expects a non-empty block.
+    if deviance > 5 or inhibition < 85:
+                                       ^
+
+File "game/locations/dormitory.rpy", line 563: expected statement.
+    elif dormitory22_level == 1:
+                           ^
 
 Ren'Py Version: Ren'Py 6.16.1.409
